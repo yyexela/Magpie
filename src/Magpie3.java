@@ -26,9 +26,10 @@ public class Magpie3 {
 	 * @return a response based on the rules given
 	 */
 	public String getResponse(String statement) {
+		statement = statement.toLowerCase();
 		String response = "";
-		if (statement.length() == 0) {
-			response = "Say something, please.";
+		if(statement.trim().length() == 0){
+			response = "Say somoething please:(";
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
 		} else if (findKeyword(statement, "mother") >= 0
@@ -36,6 +37,19 @@ public class Magpie3 {
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
+		} else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "fish") >= 0
+				|| findKeyword(statement, "hamster") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "padjen") >= 0) {
+			response = "Hey! I know them:)";
+		} else if (findKeyword(statement, "alexey") >= 0) {
+			response = "Hey! THATS YOUUUU";
+		} else if (findKeyword(statement, "snow") >= 0) {
+			response = "MMmmmm, reminds me of snowcones";
+		} else if (findKeyword(statement, "alcohol") >= 0) {
+			response = "Drinking and driving is bad mmkay";
 		} else {
 			response = getRandomResponse();
 		}
@@ -121,7 +135,7 @@ public class Magpie3 {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -134,6 +148,10 @@ public class Magpie3 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4) {
+			response = "Wow!";
+		 }else if (whichResponse == 5) {
+			response = "That's boring lol.";
 		}
 
 		return response;
