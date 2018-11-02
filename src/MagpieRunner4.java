@@ -15,12 +15,12 @@ public class MagpieRunner4 {
 		Magpie4 maggie = new Magpie4();
 
 		System.out.println(maggie.getGreeting());
-		Scanner in = new Scanner(System.in);
-		String statement = in.nextLine();
+		Scanner scan = new Scanner(System.in);
+		String statement = scan.nextLine();
 
 		while (!statement.equals("Bye")) {
 			System.out.println(maggie.getResponse(statement));
-			statement = in.nextLine();
+			statement = scan.nextLine();
 		}
 	}
 
